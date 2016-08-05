@@ -1,0 +1,14 @@
+header #back {
+	display: block;
+	margin: 20px auto;
+ 	width: 100px;
+	padding: 10px 10px;
+	background-color: #A9BCF5;
+	font-family: Arial;
+ 	color: white;
+	border-radius: 8px;
+	text-decoration: none;
+}
+header #back:hover {
+	background-color: #00BFFF;
+}
