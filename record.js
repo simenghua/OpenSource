@@ -8,5 +8,7 @@ function showRank(){
 	for(var j = 0; j <= scoreArray.length; j++){
 		nameArray.push(localStorage.getItem(localStorage.key(i)));
 	}
-	
+	for(var r = 0; r <= 7; r++){
+		document.getElementById("r").innerHTML = nameArray[r];
+	}
 }
