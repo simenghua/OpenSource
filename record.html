@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>2048 best score</title>
+	<link rel="stylesheet" type="text/css" href="record.css" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+	<script>
+	function showRank(){
+    	var nameArray = new Array();
+    	var scoreArray = new Array();
+    	for(var i = 0; i <= localStorage.length; i++){
+        	scoreArray.push(localStorage.key(i));
+    	}
+    	var sortedScoreArray = scoreArray.sort(function(a, b){return b-a});
+    	for(var j = 0; j <= scoreArray.length; j++){
+        	nameArray.push(localStorage.getItem(localStorage.key(i)));
+    	} 
+		document.getElementById("rank0").innerHTML = localStorage.getItem(localStorage.key(0))+" "+localStorage.key(0);
+		document.getElementById("rank1").innerHTML = localStorage.getItem(localStorage.key(1))+" "+localStorage.key(1);
+		document.getElementById("rank2").innerHTML = localStorage.getItem(localStorage.key(2))+" "+localStorage.key(2);
+		document.getElementById("rank3").innerHTML = localStorage.getItem(localStorage.key(3))+" "+localStorage.key(3);
+		document.getElementById("rank4").innerHTML = localStorage.getItem(localStorage.key(4))+" "+localStorage.key(4);
+		document.getElementById("rank5").innerHTML = localStorage.getItem(localStorage.key(5))+" "+localStorage.key(5);
+		document.getElementById("rank6").innerHTML = localStorage.getItem(localStorage.key(6))+" "+localStorage.key(6);
+		document.getElementById("rank7").innerHTML = localStorage.getItem(localStorage.key(7))+" "+localStorage.key(7);
+		document.getElementById("rank8").innerHTML = localStorage.getItem(localStorage.key(8))+" "+localStorage.key(8);
+		document.getElementById("rank9").innerHTML = localStorage.getItem(localStorage.key(9))+" "+localStorage.key(9);
+		document.getElementById("rank10").innerHTML = localStorage.getItem(localStorage.key(10))+" "+localStorage.key(10);
+		document.getElementById("rank11").innerHTML = localStorage.getItem(localStorage.key(11))+" "+localStorage.key(11);
+		document.getElementById("rank12").innerHTML = localStorage.getItem(localStorage.key(12))+" "+    localStorage.key(12);
+		document.getElementById("rank13").innerHTML = localStorage.getItem(localStorage.key(13))+" "+    localStorage.key(13);
+	}
+	</script>
+</head>
+
+<body>
+	<header>
+		<a href="file:///Users/Simeng/Dropbox/Project2048/project/2048.html", id="back" style="position:absolute;top:650px;left:650px">Back</a>
+	</header>
+    <img id="record2" src="record2.png" onclick="showRank()" style="position:absolute;top:50px;left:250px;width:180px;height:180px">
+</body>
+
+</html>
