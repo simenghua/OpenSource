@@ -8,7 +8,7 @@
 	<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
 	<script>
 	function showRank(){
-    	var nameArray = new Array();
+    /*	var nameArray = new Array();
     	var scoreArray = new Array();
     	for(var i = 0; i <= localStorage.length; i++){
         	scoreArray.push(localStorage.key(i));
@@ -16,8 +16,8 @@
     	var sortedScoreArray = scoreArray.sort(function(a, b){return b-a});
     	for(var j = 0; j <= scoreArray.length; j++){
         	nameArray.push(localStorage.getItem(localStorage.key(i)));
-    	} 
-		/*document.getElementById("rank0").innerHTML = localStorage.getItem(localStorage.key(0))+" "+localStorage.key(0);
+    	} */
+		document.getElementById("rank0").innerHTML = localStorage.getItem(localStorage.key(0))+" "+localStorage.key(0);
 		document.getElementById("rank1").innerHTML = localStorage.getItem(localStorage.key(1))+" "+localStorage.key(1);
 		document.getElementById("rank2").innerHTML = localStorage.getItem(localStorage.key(2))+" "+localStorage.key(2);
 		document.getElementById("rank3").innerHTML = localStorage.getItem(localStorage.key(3))+" "+localStorage.key(3);
@@ -30,7 +30,7 @@
 		document.getElementById("rank10").innerHTML = localStorage.getItem(localStorage.key(10))+" "+localStorage.key(10);
 		document.getElementById("rank11").innerHTML = localStorage.getItem(localStorage.key(11))+" "+localStorage.key(11);
 		document.getElementById("rank12").innerHTML = localStorage.getItem(localStorage.key(12))+" "+    localStorage.key(12);
-		document.getElementById("rank13").innerHTML = localStorage.getItem(localStorage.key(13))+" "+    localStorage.key(13);*/
+		document.getElementById("rank13").innerHTML = localStorage.getItem(localStorage.key(13))+" "+    localStorage.key(13);
 	}
 	</script>
 </head>
