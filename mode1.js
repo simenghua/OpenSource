@@ -60,5 +60,9 @@ function generateNumb(){
 	} 
 	else {
 		rn = 4;
-	} 
+	}
+	//show the number 
+	board[rx][ry] = rn;
+	showNumb(rx, ry, rn);
+	return true; 
 }
