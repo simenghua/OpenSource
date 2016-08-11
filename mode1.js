@@ -5,7 +5,7 @@ $(document).ready(function() {
 });
 
 function newgame() {
-	initBoard();
+	init();
 	generateNumb();
 }	
 
@@ -19,8 +19,6 @@ function init() {
 			var gridtile = $("#grid-tile-" + i + "-" + j);
 			gridtile.css('top', getposTop(i, j));
 			gridtile.css('left', getposLeft(i, j));
-			board[i] = new Array();
-			addAlready[i] = new Array();
 		}
 	}
 	for(var i = 0; i < 4; i++){
@@ -28,6 +26,7 @@ function init() {
 		addAlready[i] = new Array();
 		for(var j = 0; j < 4; j++){
 			board[i][j] = 0;
+			addAlready[i][j] = true;
 		}
 	}
 }  
@@ -39,3 +38,5 @@ function getposTop(i, j) {
 function getposLeft(i, j) {
 	return 20 + j * 120;
 }
+
+/*------------------ GenerateNumber -----------------*/
