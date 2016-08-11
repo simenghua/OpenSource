@@ -395,3 +395,20 @@ function showMove(fromX, fromY, toX, toY){
 		left: getposLeft(toX, toY)
 	});
 }
+
+/*-------------------------- GameOver -----------------------*/
+function isGameover(){
+	if(nospace(board) && nomove(board)){
+		gameover();
+	}
+}
+
+function nomove(board){
+	if(canMoveLeft(board)||canMoveRight(board)||
+	   canMoveUp(board)||canMoveDown(board)){
+		return false;
+	}
+	else{
+		return true;
+	}
+}
