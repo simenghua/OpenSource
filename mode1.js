@@ -246,3 +246,23 @@ function canMoveDown(board){
 	}
 	return false;
 }
+
+/*------------------------ noBlock -------------------------*/
+function noBlockHorizontal(r, c1, c2, board){
+	for(var i = c1 + 1; i < c2; i++){
+		if(board[r][i] != 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
+function noBlockVertical(c, r1, r2, board){
+	for(var i = r1 + 1; i < r2; i++){
+		if(board[i][c] != 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
