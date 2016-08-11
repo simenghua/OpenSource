@@ -56,3 +56,14 @@ function generateNumb(){
 	board[rx][ry] = rn;
 	showNumb(rx, ry, rn);
 }
+
+function nospace(){
+	for(var i = 0; i < 4; i++){
+		for(var j = 0; j < 4; j++){
+			if(board[i][j] == 0) {
+				return false;
+			} 
+		}
+	}
+	return true;
+}
