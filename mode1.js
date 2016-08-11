@@ -42,45 +42,35 @@ function getposLeft(i, j) {
 /*--------------------------- ChangeColor ----------------------------*/
 function getBcolor(n){
 	switch(n){
-		case 2: 
-			return "#000000";
+		case 2: return "#CEF6EC";
 		break;
-		case 4: 
-			return "#111111";
+		case 4: return "#A9F5E1";
 		break;
-		case 8: 
-			return "#222222";
+		case 8: return "#81F7D8";
 		break;
-		case 16: 
-			return "#333333";
+		case 16: return "#58FAD0";
 		break;
-		case 32: 
-			return "#444444";
+		case 32: return "#2EFEC8";
 		break;
-		case 64: 
-			return "#555555";
+		case 64: return "#00FFBF";
 		break;
-		case 128: 
-			return "#666666";
+		case 128: return "#01DFA5";
 		break;
-		case 256: 
-			return "#777777";
+		case 256: return "#04B486";
 		break;
-		case 512: 
-			return "#888888";
+		case 512: return "#088A68";
 		break;
-		case 1024: 
-			return "#999999";
+		case 1024: return "#088A4B";
 		break;
-		case 2048: 
-			return "#101010";
+		case 2048: return "#04B431";
  		break;
 	}
+	return "black";
 }
 
 function getNumbColor(n){
 	if( n <= 4 ){
-		return "black";
+		return "#04B486";
 	} 
 	else {
 		return "white";
