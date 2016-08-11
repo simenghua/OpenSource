@@ -1,6 +1,7 @@
 # 2048Game
 Copyright (c) 2016 Simeng Hua    
 
+demo: http://web.cecs.pdx.edu/~shua/project/2048.html
 
 What is 2048?  
 -   
