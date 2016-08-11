@@ -39,6 +39,54 @@ function getposLeft(i, j) {
 	return 20 + j * 120;
 }
 
+/*--------------------------- ChangeColor ----------------------------*/
+function getBcolor(n){
+	switch(n){
+		case 2: 
+			return "#000000";
+		break;
+		case 4: 
+			return "#111111";
+		break;
+		case 8: 
+			return "#222222";
+		break;
+		case 16: 
+			return "#333333";
+		break;
+		case 32: 
+			return "#444444";
+		break;
+		case 64: 
+			return "#555555";
+		break;
+		case 128: 
+			return "#666666";
+		break;
+		case 256: 
+			return "#777777";
+		break;
+		case 512: 
+			return "#888888";
+		break;
+		case 1024: 
+			return "#999999";
+		break;
+		case 2048: 
+			return "#101010";
+ 		break;
+	}
+}
+
+function getNumbColor(n){
+	if( n <= 4 ){
+		return "black";
+	} 
+	else {
+		return "white";
+	}
+}
+
 /*---------------------------- GenerateNumber ----------------------*/
 function generateOneNumb(){
 	if(nospace(board)){
