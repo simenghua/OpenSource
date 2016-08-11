@@ -1,0 +1,55 @@
+header #back {
+	display: block;
+    margin: 20px auto;
+    width: 100px;
+    padding: 10px 10px;
+    background-color: #81F7BE;
+    font-family: Lucida Sans Unicode;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+	background-color: #F7BE81;
+	text-align: center;
+}
+header #back:hover {
+	background-color: #FA5858;
+}
+
+#rank0 {
+	display: block;
+	margin: 20px auto;
+ 	width: 150px;
+	padding: 10px 10px;
+	background-color: #CEF6EC;
+	font-family: Lucida Sans Unicode;
+ 	color: white;
+	border-radius: 5px;
+	text-decoration: none;
+	position: absolute;
+	top: 200px;
+	left: 100px;
+	text-align: center;
+}
+#rank0:hover {
+	background-color: #81F7BE;
+}
+
+#rank1 {
+	display: block;
+	margin: 20px auto;
+ 	width: 150px;
+	padding: 10px 10px;
+	background-color: #CEF6EC;
+	font-family: Lucida Sans Unicode;
+ 	color: white;
+	border-radius: 5px;
+	text-decoration: none;
+	position: absolute;
+	top: 300px;
+	left: 150px;
+	text-align: center;
+}
+#rank1:hover {
+	background-color: #81F7BE;
+}
+
