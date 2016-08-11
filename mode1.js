@@ -186,9 +186,58 @@ $(document).keydown(function(event){
 });
 
 /*-------------------------------- Move -----------------------------------*/
-function moveLeft(){}
+function moveLeft(){
+	if(!canMoveLeft(board)){
+		return false;
+	}
+	else{
+		for(var i = 0; i < 4; i++){
+			for(var j = 1; j < 4; j++){ // no need to move the leftmost column
+				if(board[i][j] != 0){
+					for(var k = 0; k < j; k++){
+						if(board[i][k] == 0 && noBlockHorizontal(i, k, j, board)){
+							board[i][k] = board[i][j];
+							board[i][j] = 0;
+							continue;
+						}
+						else if(board[i][k] == board[i][j] && noBlockHorizontal(i, k, j, board) && !addAlready[i][k]){
+							board[i][k] += board[i][j];
+							board[i][j] = 0;
+							addAlready[i][k] = true;
+							continue;
+						}
+					}
+				}
+			}
+		}
+	}
+}
 
-function moveUp(){}
+function moveUp(){
+	if(!canMoveUp(board)){
+		return false;
+	}
+	else{
+		for(var i = 1; i < 4; i++){ //no need to move the upmost row
+			for(var j = 0; j < 4; j++){ 
+				if(board[i][j] != 0){
+					for(var k = 0; k < i; k++){
+						if(board[k][j] == 0 && noBlockVertical(j, k, i, board)){
+							board[k][j] = board[i][j];
+							board[i][j] = 0;
+							continue;
+						}
+						else if(board[k][j] == board[i][j] && noBlockVertical(j, k, i, board) && !addAlready[k][j]){
+							board[k][j] += board[i][j];
+							board[i][j] = 0;
+							addAlready[k][j] = true;
+							continue;
+						}
+					}
+				}
+			}
+		}
+	}
 
 function moveRight(){}
 
