@@ -9,7 +9,7 @@ function newgame() {
 	generateNumb();
 }	
 
-/*------------------ InitiateBoard -----------------*/
+/*------------------ InitiateAndUpdateBoard -----------------*/
 var board = new Array();
 var addAlready = new Array();
 
@@ -38,6 +38,35 @@ function getposTop(i, j) {
 function getposLeft(i, j) {
 	return 20 + j * 120;
 }
+
+function updateBoard(){
+	$(".number-tile").remove();
+	for(var i = 0; i < 4; i++){
+		for(var j = 0; j < 4; j++){
+			$("#grid-container").append('<div class="number-tile" id="number-tile-'+-i-+'-'+-j-+'"></div>');
+			var tileNumb = $('#number-tile-'+i+'-'+j);
+			if(board[i][j] == 0){
+				tileNumb.css('width', '0px');
+				tileNumb.css('height', '0px');
+				tileNumb.css('top', getposTop(i, j));
+				tileNumb.css('left', getposLeft(i, j));
+				addAlready[i][j] = false;
+			} 
+			else{
+				tileNumb.css('width', '100px');
+				tileNumb.css('height', '100px');
+				tileNumb.css('top', getposTop(i, j));
+				tileNumb.css('left', getposLeft(i, j));
+				tileNumb.css('background-color', getBcolor(board[i][j]));
+				tileNumb.css('color', getNumbColor(board[i][j]));
+				tileNumb.text(board[i][j]);
+				addAlready[i][j] = false;
+			}
+			
+		}
+	}
+}
+
 
 /*--------------------------- ChangeColor ----------------------------*/
 function getBcolor(n){
