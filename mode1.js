@@ -5,14 +5,16 @@ $(document).ready(function() {
 });
 
 function newgame() {
-	init();
+	init();//initail board
+	updateScore(0);
 	generateOneNumb();
 	generateOneNumb();
 }	
 
-/*------------------ InitiateAndUpdateBoard -----------------*/
+/*------------------ InitiateAndUpdateBoardAndScore -----------------*/
 var board = new Array();
 var addAlready = new Array();
+var score = 0;
 
 function init() {
 	for(var i = 0; i < 4; i++) {
@@ -31,6 +33,7 @@ function init() {
 		}
 	}
 	updateBoard();
+	score = 0;
 }  
 
 function getposTop(i, j) {
@@ -52,7 +55,6 @@ function updateBoard(){
 				tileNumb.css('height', '0px');
 				tileNumb.css('top', getposTop(i, j) + 50); //put it at tile center
 				tileNumb.css('left', getposLeft(i, j) + 50);
-				addAlready[i][j] = false;
 			} 
 			else{
 				tileNumb.css('width', '100px');
@@ -62,13 +64,15 @@ function updateBoard(){
 				tileNumb.css('background-color', getBcolor(board[i][j]));
 				tileNumb.css('color', getNumbColor(board[i][j]));
 				tileNumb.text(board[i][j]);
-				addAlready[i][j] = false;
 			}
-			
+			addAlready[i][j] = false;
 		}
 	}
 }
 
+function updateScore(score){
+	$('#score_s').text(score);
+}
 
 /*--------------------------- ChangeColor ----------------------------*/
 function getBcolor(n){
@@ -208,6 +212,8 @@ function moveLeft(){
 							//add
 							board[i][k] += board[i][j];
 							board[i][j] = 0;
+							score += board[i][k];
+							updateScore(score);
 							addAlready[i][k] = true;
 							continue;
 						}
@@ -215,6 +221,7 @@ function moveLeft(){
 				}
 			}
 		}
+		return true;
 	}
 }
 
@@ -235,11 +242,13 @@ function moveUp(){
 							continue;
 						}
 						else if(board[k][j] == board[i][j] && noBlockVertical(j, k, i, board) && !addAlready[k][j]){
-							//move 
+							//move
 							showMove(i, j, k, j);
 							//add
 							board[k][j] += board[i][j];
 							board[i][j] = 0;
+							score += board[k][j]
+							updateScore(score);
 							addAlready[k][j] = true;
 							continue;
 						}
@@ -247,7 +256,9 @@ function moveUp(){
 				}
 			}
 		}
+		return true;
 	}
+}
 
 function moveRight(){
 	if(!canMoveRight(board)){
@@ -271,14 +282,16 @@ function moveRight(){
 							//add
 							board[i][k] += board[i][j];
 							board[i][j] = 0;
+							score += board[i][k];
+							updateScore(score);
 							addAlready[i][k] = true;
 							continue;
-							}
 						}
 					}
 				}
 			}
 		}
+		return true;
 	}
 }
 
@@ -304,14 +317,16 @@ function moveDown(){
 							//add
 							board[k][j] += board[i][j];
 							board[i][j] = 0;
+							score += board[k][j];
+							updateScore(score);
 							addAlready[k][j] = true;
 							continue;
-							}
 						}
 					}
 				}
 			}
 		}
+		return true;
 	}
 }
 
