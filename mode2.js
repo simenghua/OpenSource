@@ -1,0 +1,455 @@
+
+/*---------------------------- NewGame ------------------------*/
+$(document).ready(function() {
+	newgame();
+});
+
+function newgame() {
+	init();//initail board
+	generateOneNumb();
+	generateOneNumb();
+}	
+
+/*------------------ InitiateAndUpdateBoardAndScore -----------------*/
+var board = new Array();
+var addAlready = new Array();
+var score = 0;
+ 
+function init() {
+	for(var i = 0; i < 4; i++) {
+		for(var j = 0; j < 4; j++) {
+			var gridtile = $("#grid-tile-" + i + "-" + j);
+			gridtile.css('top', getposTop(i, j));
+			gridtile.css('left', getposLeft(i, j));
+		}
+	}
+	for(var i = 0; i < 4; i++){
+		board[i] = new Array();
+		addAlready[i] = new Array();
+		for(var j = 0; j < 4; j++){
+			board[i][j] = 0;
+			addAlready[i][j] = false; //nothing has been done to each position
+		}
+	}
+	updateBoard();
+	score = 0;
+	updateScore(score);
+	t = 0;//reset timer
+}  
+
+function getposTop(i, j) {
+	return 20 + i * 120;
+}
+
+function getposLeft(i, j) {
+	return 20 + j * 120;
+}
+
+function updateBoard(){
+	$(".number-tile").remove();
+	for(var i = 0; i < 4; i++){
+		for(var j = 0; j < 4; j++){
+			$("#grid-container").append('<div class="number-tile" id="number-tile-'+i+'-'+j+'"></div>');
+			var tileNumb = $('#number-tile-'+i+'-'+j);
+			if(board[i][j] == 0){
+				tileNumb.css('width', '0px');
+				tileNumb.css('height', '0px');
+				tileNumb.css('top', getposTop(i, j) + 50); //put it at tile center
+				tileNumb.css('left', getposLeft(i, j) + 50);
+			} 
+			else{
+				tileNumb.css('width', '100px');
+				tileNumb.css('height', '100px');
+				tileNumb.css('top', getposTop(i, j));
+				tileNumb.css('left', getposLeft(i, j));
+				tileNumb.css('background-color', getBcolor(board[i][j]));
+				tileNumb.css('color', getNumbColor(board[i][j]));
+				tileNumb.text(board[i][j]);
+			}
+			addAlready[i][j] = false;
+		}
+	}
+}
+
+function updateScore(score){
+	$('#score_s').text(score);
+}
+
+/*--------------------------- ChangeColor ----------------------------*/
+function getBcolor(n){
+	switch(n){
+		case 2: return "#FBEFF8";
+		break;
+		case 4: return "#F8E0F1";
+		break;
+		case 8: return "#F6CEEC";
+		break;
+		case 16: return "#F5A9E1";
+		break;
+		case 32: return "#F781D8";
+		break;
+		case 64: return "#F781BE";
+		break;
+		case 128: return "#FA58AC";
+		break;
+		case 256: return "#DF01A5";
+		break;
+		case 512: return "#B40486";
+		break;
+		case 1024: return "#B4045F";
+		break;
+		case 2048: return "#8A084B";
+ 		break;
+	}
+	return "black";
+}
+
+function getNumbColor(n){
+	if( n <= 4 ){
+		return "#F5A9BC";
+	} 
+	else {
+		return "white";
+	}
+}
+
+/*---------------------------- GenerateOneNumber ----------------------*/
+function generateOneNumb(){
+	if(nospace(board)){
+		return false;
+	}
+	//generate a random position
+	var rx = parseInt(Math.floor(Math.random()*4));
+	var ry = parseInt(Math.floor(Math.random()*4));
+	while(true){
+		if(board[rx][ry] == 0) {
+			break;
+		}
+		else {
+			var rx = parseInt(Math.floor(Math.random()*4));
+			var ry = parseInt(Math.floor(Math.random()*4));
+		}
+	} 
+	//generate a random number
+	var rand = Math.random();
+	if (rand < 0.5){
+		rn = 2;
+	} 
+	else {
+		rn = 4;
+	} 
+	//show the number 
+	board[rx][ry] = rn;
+	showNumb(rx, ry, rn);
+	return true;
+}
+
+function nospace(){
+	for(var i = 0; i < 4; i++){
+		for(var j = 0; j < 4; j++){
+			if(board[i][j] == 0) {
+				return false;
+			} 
+		}
+	}
+	return true;
+}
+
+/*-------------------------------- ShowNumber -----------------------------*/
+function showNumb(x, y, n){
+	var tileNumb = $('#number-tile-' + x + '-' + y);
+	tileNumb.css('background-color', getBcolor(n));
+	tileNumb.css('color', getNumbColor(n));
+	tileNumb.text(n);
+
+	tileNumb.animate({
+		width:"100px",
+		height:"100px",
+		top: getposTop(x, y),
+		left: getposLeft(x ,y)
+	},50);
+}
+
+/*----------------------------- AssignKeyCode -------------------------------*/
+$(document).keydown(function(event){
+	switch(event.keyCode){
+		case 37: //left
+			if(moveLeft()){
+				setTimeout("generateOneNumb()", 200);
+				setTimeout("isGameover()", 300);
+			}
+			break;
+		case 38: //up
+			if(moveUp()){
+				setTimeout("generateOneNumb()", 200);
+				setTimeout("isGameover()", 300);
+			}
+			break;
+		case 39: //right
+			if(moveRight()){
+				setTimeout("generateOneNumb()", 200);
+				setTimeout("isGameover()", 300);
+			}
+			break;
+		case 40: //down
+			if(moveDown()){
+				setTimeout("generateOneNumb()", 200);
+				setTimeout("isGameover()", 300);
+			}
+			break;
+		default:
+			break;
+	}
+});
+
+/*-------------------------------- Move -----------------------------------*/
+function moveLeft(){
+	if(!canMoveLeft(board)){
+		return false;
+	}
+	else{
+		for(var i = 0; i < 4; i++){
+			for(var j = 1; j < 4; j++){ // no need to move the leftmost column
+				if(board[i][j] != 0){
+					for(var k = 0; k < j; k++){
+						if(board[i][k] == 0 && noBlockHorizontal(i, k, j, board)){
+							//move
+							showMove(i, j, i, k);
+							board[i][k] = board[i][j];
+							board[i][j] = 0;
+							continue;
+						}
+						else if(board[i][k] == board[i][j] && noBlockHorizontal(i, k, j, board) && !addAlready[i][k]){
+							//move
+							showMove(i, j, i, k);
+							//add
+							board[i][k] += board[i][j];
+							board[i][j] = 0;
+							score += board[i][k];
+							updateScore(score);
+							addAlready[i][k] = true;
+							continue;
+						}
+					}
+				}
+			}
+		}
+		setTimeout("updateBoard()", 200); //create a time lap
+		return true;
+	}
+}
+
+function moveUp(){
+	if(!canMoveUp(board)){
+		return false;
+	}
+	else{
+		for(var i = 1; i < 4; i++){ //no need to move the upmost row
+			for(var j = 0; j < 4; j++){ 
+				if(board[i][j] != 0){
+					for(var k = 0; k < i; k++){
+						if(board[k][j] == 0 && noBlockVertical(j, k, i, board)){
+							//move 
+							showMove(i, j, k, j);
+							board[k][j] = board[i][j];
+							board[i][j] = 0;
+							continue;
+						}
+						else if(board[k][j] == board[i][j] && noBlockVertical(j, k, i, board) && !addAlready[k][j]){
+							//move
+							showMove(i, j, k, j);
+							//add
+							board[k][j] += board[i][j];
+							board[i][j] = 0;
+							score += board[k][j]
+							updateScore(score);
+							addAlready[k][j] = true;
+							continue;
+						}
+					}
+				}
+			}
+		}
+		setTimeout("updateBoard()", 200);
+		return true;
+	}
+}
+
+function moveRight(){
+	if(!canMoveRight(board)){
+		return false;
+	}
+	else{
+		for(var i = 0; i < 4; i++){
+			for(var j = 2; j >= 0; j--){ //no need to move the rightmost column
+				if(board[i][j] != 0){
+					for(var k = 3; k > j; k--){
+						if(board[i][k] == 0 && noBlockHorizontal(i, j, k, board)){
+							//move
+							showMove(i, j, i, k);
+							board[i][k] = board[i][j];
+							board[i][j] = 0;
+							continue;
+						}
+						else if(board[i][k] == board[i][j] && noBlockHorizontal(i, j, k, board) && !addAlready[i][k]){
+							//move
+							showMove(i, j, i, k);
+							//add
+							board[i][k] += board[i][j];
+							board[i][j] = 0;
+							score += board[i][k];
+							updateScore(score);
+							addAlready[i][k] = true;
+							continue;
+						}
+					}
+				}
+			}
+		}
+		setTimeout("updateBoard()", 200);
+		return true;
+	}
+}
+
+function moveDown(){
+	if(!canMoveDown(board)){
+		return false;
+	}
+	else{
+		for(var i = 2; i >= 0; i--){
+			for(var j = 0; j < 4; j++){ // no need to move the downmost row
+				if(board[i][j] != 0){
+					for(var k = 3; k > i; k--){
+						if(board[k][j] == 0 && noBlockVertical(j, i, k, board)){
+							//move
+							showMove(i, j, k, j);
+							board[k][j] = board[i][j];
+							board[i][j] = 0;
+							continue;
+						}
+						else if(board[k][j] == board[i][j] && noBlockVertical(j, i, k, board) && !addAlready[k][j]){
+							//move
+							showMove(i, j, k, j);
+							//add
+							board[k][j] += board[i][j];
+							board[i][j] = 0;
+							score += board[k][j];
+							updateScore(score);
+							addAlready[k][j] = true;
+							continue;
+						}
+					}
+				}
+			}
+		}
+		setTimeout("updateBoard()", 200);
+		return true;
+	}
+}
+
+/*--------------------------- canMove --------------------------------*/
+function canMoveLeft(board){
+	for(var i = 0; i < 4; i++){
+		for(var j = 1; j < 4; j++) {
+			if(board[i][j] != 0){
+				if(board[i][j-1] == 0 || board[i][j] == board[i][j-1]){
+					return true;
+				}
+			}
+		}
+	}
+	return false;
+}
+
+function canMoveUp(board){
+	for(var i = 1; i < 4; i++){
+		for(var j = 0; j < 4; j++) {
+			if(board[i][j] != 0){
+				if(board[i-1][j] == 0 || board[i][j] == board[i-1][j]){
+					return true;
+				}
+			}
+		}
+	}
+	return false;
+}
+
+function canMoveRight(board){
+	for(var i = 0; i < 4; i++){
+		for(var j = 0; j < 3; j++) {
+			if(board[i][j] != 0){
+				if(board[i][j+1] == 0 || board[i][j] == board[i][j+1]){
+					return true;
+				}
+			}
+		}
+	}
+	return false;
+}
+
+function canMoveDown(board){
+	for(var i = 0; i < 3; i++){
+		for(var j = 0; j < 4; j++) {
+			if(board[i][j] != 0){
+				if(board[i+1][j] == 0 || board[i][j] == board[i+1][j]){
+					return true;
+				}
+			}
+		}
+	}
+	return false;
+}
+
+/*------------------------ noBlock -------------------------*/
+function noBlockHorizontal(r, c1, c2, board){
+	for(var i = c1 + 1; i < c2; i++){
+		if(board[r][i] != 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
+function noBlockVertical(c, r1, r2, board){
+	for(var i = r1 + 1; i < r2; i++){
+		if(board[i][c] != 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
+/*------------------------- ShowMove -------------------------*/
+function showMove(fromX, fromY, toX, toY){
+	var tileNumb = $('#number-tile-' + fromX + '-' + fromY);
+	tileNumb.animate({
+		top: getposTop(toX, toY),
+		left: getposLeft(toX, toY)
+	}, 200);
+}
+
+/*-------------------------- GameOver -------------------------*/
+function isGameover(){
+	if(nospace(board) && nomove(board)){
+		gameover();
+	}
+}
+
+function nomove(board){
+	if(canMoveLeft(board)||canMoveRight(board)||
+	   canMoveUp(board)||canMoveDown(board)){
+		return false;
+	}
+	else{
+		return true;
+	}
+}
+
+function gameover(){
+	var name = prompt("Gameover! Please enter your name to save your score", "your name");
+	if(name != null){
+		localStorage.setItem(score, name);
+	}else{
+		alert("Are you sure you don't want to save your score?");
+	} 
+}
