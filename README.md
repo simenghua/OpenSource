@@ -1,6 +1,7 @@
 # 2048Game
 Copyright (c) 2016 Simeng Hua
 
+
 What is 2048?
 
 The 2048 game is a simple single-user math game, which consists of a board of 4x4 tiles as its
@@ -10,6 +11,7 @@ How to Play?
 
 
 Language
+
 Javascript
 HTML/CSS
 
