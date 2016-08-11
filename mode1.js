@@ -166,23 +166,35 @@ function showNumb(x, y, n){
 		height:"100px",
 		top: getposTop(x, y),
 		left: getposLeft(x ,y)
-	});
+	},50);
 }
 
 /*----------------------------- AssignKeyCode -------------------------------*/
 $(document).keydown(function(event){
 	switch(event.keyCode){
 		case 37: //left
-			moveLeft()
+			if(moveLeft()){
+				setTimeout("generateOneNumb()", 200);
+				setTimeout("isGameover()", 300);
+			}
 			break;
 		case 38: //up
-			moveUp()
+			if(moveUp()){
+				setTimeout("generateOneNumb()", 200);
+				setTimeout("isGameover()", 300);
+			}
 			break;
 		case 39: //right
-			moveRight()
+			if(moveRight()){
+				setTimeout("generateOneNumb()", 200);
+				setTimeout("isGameover()", 300);
+			}
 			break;
 		case 40: //down
-			moveDown()
+			if(moveDown()){
+				setTimeout("generateOneNumb()", 200);
+				setTimeout("isGameover()", 300);
+			}
 			break;
 		default:
 			break;
@@ -221,6 +233,7 @@ function moveLeft(){
 				}
 			}
 		}
+		setTimeout("updateBoard()", 200); //create a time lap
 		return true;
 	}
 }
@@ -256,6 +269,7 @@ function moveUp(){
 				}
 			}
 		}
+		setTimeout("updateBoard()", 200);
 		return true;
 	}
 }
@@ -291,6 +305,7 @@ function moveRight(){
 				}
 			}
 		}
+		setTimeout("updateBoard()", 200);
 		return true;
 	}
 }
@@ -326,6 +341,7 @@ function moveDown(){
 				}
 			}
 		}
+		setTimeout("updateBoard()", 200);
 		return true;
 	}
 }
@@ -408,7 +424,7 @@ function showMove(fromX, fromY, toX, toY){
 	tileNumb.animate({
 		top: getposTop(toX, toY),
 		left: getposLeft(toX, toY)
-	});
+	}, 200);
 }
 
 /*-------------------------- GameOver -----------------------*/
@@ -436,4 +452,3 @@ function gameover(){
         alert("Are you sure you don't want to save your score?");
     }   
 }
-
