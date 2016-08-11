@@ -6,7 +6,7 @@ header #back {
     background-color: #81F7BE;
     font-family: Lucida Sans Unicode;
     color: white;
-    border-radius: 5px;
+    border-radius: 8px;
     text-decoration: none;
 	background-color: #F7BE81;
 	text-align: center;
@@ -18,16 +18,16 @@ header #back:hover {
 #rank0 {
 	display: block;
 	margin: 20px auto;
- 	width: 150px;
+ 	width: 130px;
 	padding: 10px 10px;
 	background-color: #CEF6EC;
 	font-family: Lucida Sans Unicode;
  	color: white;
-	border-radius: 5px;
+	border-radius: 8px;
 	text-decoration: none;
 	position: absolute;
-	top: 200px;
-	left: 100px;
+	top: 250px;
+	left: 150px;
 	text-align: center;
 }
 #rank0:hover {
@@ -37,7 +37,7 @@ header #back:hover {
 #rank1 {
 	display: block;
 	margin: 20px auto;
- 	width: 150px;
+ 	width: 130px;
 	padding: 10px 10px;
 	background-color: #CEF6EC;
 	font-family: Lucida Sans Unicode;
