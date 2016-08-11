@@ -26,7 +26,7 @@ function init() {
 		addAlready[i] = new Array();
 		for(var j = 0; j < 4; j++){
 			board[i][j] = 0;
-			addAlready[i][j] = true;
+			addAlready[i][j] = false; //nothing has been done to each position
 		}
 	}
 }  
