@@ -33,7 +33,7 @@ Current Features
 - Adventure mode   
  
 
-Feture Plans   
+Future Plans   
 -    
 - In current version, there are several HTML files that are used for different modes, instructions and leader board. We want to eventually combine them into one single HTML file, while keeping the current functions.
 
