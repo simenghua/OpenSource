@@ -26,7 +26,8 @@ Language
 - HTML/CSS
 
 Current Features    
--    
+-  
+- Homepage
 - Instruction page
 - Leaderboard page  
 - Classic mode
