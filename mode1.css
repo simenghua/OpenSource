@@ -15,17 +15,17 @@ header #newgame {
 	margin: 20px auto;
 	width: 100px;
 	padding: 10px 10px;
-	background-color: black;
+	background-color: #A9F5F2;
 	font-family: Lucida Sans Unicode;
 	color: white;
 	border-radius: 8px;
 	text-decoration: none;
 	position: absolute;
-	top: 150px;
+	top: 140px;
 	right: 200px;
 }
 header #newgame:hover {
-	background-color: white;
+	background-color: #81DAF5;
 }
 
 header #back {
@@ -33,17 +33,17 @@ header #back {
 	margin: 20px auto;
 	width: 100px;
 	padding: 10px 10px;
-	background-color: black;
+	background-color: #81F7BE;
 	font-family: Lucida Sans Unicode;
 	color: white;
 	border-radius: 8px;
 	text-decoration: none;
 	position: absolute;
-	top: 250px;
+	top: 240px;
 	right: 200px;
 }
 header #back:hover {
-	background-color: white;
+	background-color: #01DFA5;
 }
 
 header #score {
@@ -51,17 +51,17 @@ header #score {
 	margin: 20px auto;
 	width: 100px;
 	padding: 10px 10px;
-	background-color: black;
+	background-color: #9FF781;
 	font-family: Lucida Sans Unicode;
 	color: white;
 	border-radius: 8px;
 	text-decoration: none;
 	position: absolute;
-	top: 160px;
+	top: 190px;
 	right: 200px;
 }
 header #score:hover {
-	background-color: white;
+	background-color: #04B45F;
 }
 
 #grid-container {
