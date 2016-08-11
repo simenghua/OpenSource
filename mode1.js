@@ -43,13 +43,13 @@ function updateBoard(){
 	$(".number-tile").remove();
 	for(var i = 0; i < 4; i++){
 		for(var j = 0; j < 4; j++){
-			$("#grid-container").append('<div class="number-tile" id="number-tile-'+-i-+'-'+-j-+'"></div>');
+			$("#grid-container").append('<div class="number-tile" id="number-tile-'+i+'-'+j+'"></div>');
 			var tileNumb = $('#number-tile-'+i+'-'+j);
 			if(board[i][j] == 0){
 				tileNumb.css('width', '0px');
 				tileNumb.css('height', '0px');
-				tileNumb.css('top', getposTop(i, j));
-				tileNumb.css('left', getposLeft(i, j));
+				tileNumb.css('top', getposTop(i, j) + 50); //put it at tile center
+				tileNumb.css('left', getposLeft(i, j) + 50);
 				addAlready[i][j] = false;
 			} 
 			else{
