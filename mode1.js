@@ -40,10 +40,22 @@ function getposLeft(i, j) {
 }
 
 /*---------------------------- GenerateNumber ----------------------*/
-function generateNumb(){
+function generateOneNumb(){
+	if(nospace(board)){
+		return false;
+	}
 	//generate a random position
 	var rx = parseInt(Math.floor(Math.random()*4));
 	var ry = parseInt(Math.floor(Math.random()*4));
+	while(true){
+		if(board[rx][ry] == 0) {
+			break;
+		}
+		else {
+			var rx = parseInt(Math.floor(Math.random()*4));
+			var ry = parseInt(Math.floor(Math.random()*4));
+		}
+	} 
 	//generate a random number
 	var rand = Math.random();
 	if (rand < 0.5){
@@ -51,10 +63,11 @@ function generateNumb(){
 	} 
 	else {
 		rn = 4;
-	}
+	} 
 	//show the number 
 	board[rx][ry] = rn;
 	showNumb(rx, ry, rn);
+	return true;
 }
 
 function nospace(){
@@ -71,7 +84,8 @@ function nospace(){
 /*-------------------------------- ShowNumber -----------------------------*/
 function showNumb(x, y, n){
 	var tileNumb = $('#number-tile-' + x + '-' + y);
-	/*tileColor*/
+	tileNumb.css('background-color', getBcolor(n));
+	tileNumb.css('color', getNumbColor(n));
 	tileNumb.text(n);
 
 	tileNumb.animate({
