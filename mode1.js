@@ -196,11 +196,16 @@ function moveLeft(){
 				if(board[i][j] != 0){
 					for(var k = 0; k < j; k++){
 						if(board[i][k] == 0 && noBlockHorizontal(i, k, j, board)){
+							//move
+							showMove(i, j, i, k);
 							board[i][k] = board[i][j];
 							board[i][j] = 0;
 							continue;
 						}
 						else if(board[i][k] == board[i][j] && noBlockHorizontal(i, k, j, board) && !addAlready[i][k]){
+							//move
+							showMove(i, j, i, k);
+							//add
 							board[i][k] += board[i][j];
 							board[i][j] = 0;
 							addAlready[i][k] = true;
@@ -223,11 +228,16 @@ function moveUp(){
 				if(board[i][j] != 0){
 					for(var k = 0; k < i; k++){
 						if(board[k][j] == 0 && noBlockVertical(j, k, i, board)){
+							//move 
+							showMove(i, j, k, j);
 							board[k][j] = board[i][j];
 							board[i][j] = 0;
 							continue;
 						}
 						else if(board[k][j] == board[i][j] && noBlockVertical(j, k, i, board) && !addAlready[k][j]){
+							//move 
+							showMove(i, j, k, j);
+							//add
 							board[k][j] += board[i][j];
 							board[i][j] = 0;
 							addAlready[k][j] = true;
@@ -239,9 +249,71 @@ function moveUp(){
 		}
 	}
 
-function moveRight(){}
+function moveRight(){
+	if(!canMoveRight(board)){
+		return false;
+	}
+	else{
+		for(var i = 0; i < 4; i++){
+			for(var j = 2; j >= 0; j--){ //no need to move the rightmost column
+				if(board[i][j] != 0){
+					for(var k = 3; k > j; k--){
+						if(board[i][k] == 0 && noBlockHorizontal(i, j, k, board)){
+							//move
+							showMove(i, j, i, k);
+							board[i][k] = board[i][j];
+							board[i][j] = 0;
+							continue;
+						}
+						else if(board[i][k] == board[i][j] && noBlockHorizontal(i, j, k, board) && !addAlready[i][k]){
+							//move
+							showMove(i, j, i, k);
+							//add
+							board[i][k] += board[i][j];
+							board[i][j] = 0;
+							addAlready[i][k] = true;
+							continue;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
 
-function moveDown(){}
+function moveDown(){
+	if(!canMoveDown(board)){
+		return false;
+	}
+	else{
+		for(var i = 2; i >= 0; i--){
+			for(var j = 0; j < 4; j++){ // no need to move the downmost row
+				if(board[i][j] != 0){
+					for(var k = 3; k > i; k--){
+						if(board[k][j] == 0 && noBlockVertical(j, i, k, board)){
+							//move
+							showMove(i, j, k, j);
+							board[k][j] = board[i][j];
+							board[i][j] = 0;
+							continue;
+						}
+						else if(board[k][j] == board[i][j] && noBlockVertical(j, i, k, board) && !addAlready[k][j]){
+							//move
+							showMove(i, j, k, j);
+							//add
+							board[k][j] += board[i][j];
+							board[i][j] = 0;
+							addAlready[k][j] = true;
+							continue;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
 
 /*--------------------------- canMove --------------------------------*/
 function canMoveLeft(board){
