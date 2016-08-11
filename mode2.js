@@ -452,4 +452,40 @@ function gameover(){
 	}else{
 		alert("Are you sure you don't want to save your score?");
 	} 
+	clearTimeout(timer);
+	running = 0;
+	/*need to disable moving after gameover*/
 }
+
+/*--------------------------- Timer -------------------------*/
+var t = 0;
+var running = 0;
+
+function startTimer(){
+	running = 1;
+	if(running == 1){
+		increment();
+	}
+	timer = setTimeout("gameover()", 60000); /*game over after preset mins*/
+}
+
+function increment(){
+	if(running == 1){
+		setTimeout(function(){
+			t++;
+			var mins = "0" + Math.floor(t/10/60);
+			var secs = Math.floor(t/10 % 60);
+/*			var tenths = t % 10; */
+			if(secs < 10){
+				secs = "0" + secs;
+			}
+/*			if(tenths < 10){
+				tenths = "0" + tenths;
+			} */
+			var time = mins + ":" + secs/*+ ":" + tenths*/;
+			$('#time_s').text(time);
+			increment();
+		},98);
+	}
+}	
+
