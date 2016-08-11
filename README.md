@@ -1,5 +1,6 @@
 # 2048Game
-Copyright (c) 2016 Simeng Hua
+Copyright (c) 2016 Simeng Hua    
+
 
 What is 2048?  
 -   
