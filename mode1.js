@@ -315,3 +315,11 @@ function noBlockVertical(c, r1, r2, board){
 	return true;
 }
 
+/*------------------------- ShowMove -------------------------*/
+function showMove(fromX, fromY, toX, toY){
+	var tileNumb = $('#number-tile-' + fromX + '-' + fromY);
+	tileNumb.animate({
+		top: getposTop(toX, toY),
+		left: getposLeft(toX, toY)
+	});
+}
