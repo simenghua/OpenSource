@@ -164,3 +164,32 @@ function showNumb(x, y, n){
 		left: getposLeft(x ,y)
 	});
 }
+
+/*----------------------------- AssignKeyCode -------------------------------*/
+$(document).keydown(function(event){
+	switch(event.keyCode){
+		case 37: //left
+			moveLeft()
+			break;
+		case 38: //up
+			moveUp()
+			break;
+		case 39: //right
+			moveRight()
+			break;
+		case 40: //down
+			moveDown()
+			break;
+		default:
+			break;
+	}
+});
+
+/*-------------------------------- Move -----------------------------------*/
+function moveLeft(){}
+
+function moveUp(){}
+
+function moveRight(){}
+
+function moveDown(){}
