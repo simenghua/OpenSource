@@ -42,7 +42,7 @@ header #back:hover {
 	background-color: #CEF6EC;
 	font-family: Lucida Sans Unicode;
  	color: white;
-	border-radius: 5px;
+	border-radius: 8px;
 	text-decoration: none;
 	position: absolute;
 	top: 300px;
@@ -52,4 +52,100 @@ header #back:hover {
 #rank1:hover {
 	background-color: #81F7BE;
 }
+
+#rank2 {
+	display: block;
+	margin: 20px auto;
+ 	width: 130px;
+	padding: 10px 10px;
+	background-color: #CEF6EC;
+	font-family: Lucida Sans Unicode;
+ 	color: white;
+	border-radius: 8px;
+	text-decoration: none;
+	position: absolute;
+	top: 350px;
+	left: 150px;
+	text-align: center;
+}
+#rank2:hover {
+	background-color: #81F7BE;
+}
+
+#rank3 {
+	display: block;
+	margin: 20px auto;
+ 	width: 130px;
+	padding: 10px 10px;
+	background-color: #CEF6EC;
+	font-family: Lucida Sans Unicode;
+ 	color: white;
+	border-radius: 8px;
+	text-decoration: none;
+	position: absolute;
+	top: 400px;
+	left: 150px;
+	text-align: center;
+}
+#rank3:hover {
+	background-color: #81F7BE;
+}
+
+#rank4 {
+	display: block;
+	margin: 20px auto;
+ 	width: 130px;
+	padding: 10px 10px;
+	background-color: #CEF6EC;
+	font-family: Lucida Sans Unicode;
+ 	color: white;
+	border-radius: 8px;
+	text-decoration: none;
+	position: absolute;
+	top: 450px;
+	left: 150px;
+	text-align: center;
+}
+#rank4:hover {
+	background-color: #81F7BE;
+}
+
+#rank5 {
+	display: block;
+	margin: 20px auto;
+ 	width: 130px;
+	padding: 10px 10px;
+	background-color: #CEF6EC;
+	font-family: Lucida Sans Unicode;
+ 	color: white;
+	border-radius: 8px;
+	text-decoration: none;
+	position: absolute;
+	top: 500px;
+	left: 150px;
+	text-align: center;
+}
+#rank5:hover {
+	background-color: #81F7BE;
+}
+
+#rank6 {
+	display: block;
+	margin: 20px auto;
+ 	width: 130px;
+	padding: 10px 10px;
+	background-color: #CEF6EC;
+	font-family: Lucida Sans Unicode;
+ 	color: white;
+	border-radius: 8px;
+	text-decoration: none;
+	position: absolute;
+	top: 550px;
+	left: 150px;
+	text-align: center;
+}
+#rank6:hover {
+	background-color: #81F7BE;
+}
+
 
