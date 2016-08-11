@@ -148,4 +148,23 @@ header #back:hover {
 	background-color: #81F7BE;
 }
 
+#rank7 {
+	display: block;
+	margin: 20px auto;
+ 	width: 130px;
+	padding: 10px 10px;
+	background-color: #F8E0EC;
+	font-family: Lucida Sans Unicode;
+ 	color: white;
+	border-radius: 8px;
+	text-decoration: none;
+	position: absolute;
+	top: 250px;
+	left: 500px;
+	text-align: center;
+}
+#rank7:hover {
+	background-color: #F5A9D0;
+}
+
 
