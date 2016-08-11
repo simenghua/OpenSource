@@ -44,15 +44,6 @@ function generateNumb(){
 	//generate a random position
 	var rx = parseInt(Math.floor(Math.random()*4));
 	var ry = parseInt(Math.floor(Math.random()*4));
-	while(true){
-		if(board[rx][ry] == 0) {
-			break;
-		}
-		else {
-			var rx = parseInt(Math.floor(Math.random()*4));
-			var ry = parseInt(Math.floor(Math.random()*4));
-		}
-	} 
 	//generate a random number
 	var rand = Math.random();
 	if (rand < 0.5){
@@ -64,5 +55,4 @@ function generateNumb(){
 	//show the number 
 	board[rx][ry] = rn;
 	showNumb(rx, ry, rn);
-	return true; 
 }
