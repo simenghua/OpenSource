@@ -67,3 +67,17 @@ function nospace(){
 	}
 	return true;
 }
+
+/*-------------------------------- ShowNumber -----------------------------*/
+function showNumb(x, y, n){
+	var tileNumb = $('#number-tile-' + x + '-' + y);
+	/*tileColor*/
+	tileNumb.text(n);
+
+	tileNumb.animate({
+		width:"100px",
+		height:"100px",
+		top: getposTop(x, y),
+		left: getposLeft(x ,y)
+	});
+}
