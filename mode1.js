@@ -6,7 +6,8 @@ $(document).ready(function() {
 
 function newgame() {
 	init();
-	generateNumb();
+	generateOneNumb();
+	generateOneNumb();
 }	
 
 /*------------------ InitiateAndUpdateBoard -----------------*/
@@ -29,6 +30,7 @@ function init() {
 			addAlready[i][j] = false; //nothing has been done to each position
 		}
 	}
+	updateBoard();
 }  
 
 function getposTop(i, j) {
@@ -106,7 +108,7 @@ function getNumbColor(n){
 	}
 }
 
-/*---------------------------- GenerateNumber ----------------------*/
+/*---------------------------- GenerateOneNumber ----------------------*/
 function generateOneNumb(){
 	if(nospace(board)){
 		return false;
