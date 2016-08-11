@@ -427,3 +427,13 @@ function nomove(board){
 		return true;
 	}
 }
+
+function gameover(){
+	var name = prompt("Gameover! Please enter your name to save your score", "your name");
+    if(name != null){
+	    localStorage.setItem(name, score);
+    }else{
+        alert("Are you sure you don't want to save your score?");
+    }   
+}
+
