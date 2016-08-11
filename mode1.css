@@ -24,6 +24,9 @@ header #newgame {
 	top: 150px;
 	right: 200px;
 }
+header #newgame:hover {
+	background-color: white;
+}
 
 header #back {
 	display: block;
@@ -39,6 +42,9 @@ header #back {
 	top: 250px;
 	right: 200px;
 }
+header #back:hover {
+	background-color: white;
+}
 
 header #score {
 	display: block;
@@ -53,6 +59,9 @@ header #score {
 	position: absolute;
 	top: 160px;
 	right: 200px;
+}
+header #score:hover {
+	background-color: white;
 }
 
 #grid-container {
