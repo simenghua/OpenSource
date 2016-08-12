@@ -45,7 +45,7 @@ Future Plans
 - We also plan to add a "Challenge your friend" mode, so that two players can play online the same time on the same page. They will each have a board and see each other's move. In certain amount of time, whoever gets a higher score wins the competition. 
     
 
-Contact Information    
+Contact 
 -
 shua@pdx.edu
        
