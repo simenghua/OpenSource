@@ -1,4 +1,4 @@
-# 2048Game
+# 2048 Game
 Copyright (c) 2016 Simeng Hua    
 
 Slides: https://github.com/simenghua/OpenSource/blob/master/presentation.pdf      
