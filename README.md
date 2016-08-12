@@ -1,7 +1,7 @@
 # 2048Game
 Copyright (c) 2016 Simeng Hua    
 
-demo: http://web.cecs.pdx.edu/~shua/project/main_mode1.html
+demo of the classic mode: http://web.cecs.pdx.edu/~shua/project/main_mode1.html
 
 What is 2048?  
 -   
@@ -48,5 +48,6 @@ Contact Information
 -
 shua@pdx.edu
        
-       
+License  
+-
 This code is available under the "MIT License". Please see the file COPYING in this distribution for license terms.
