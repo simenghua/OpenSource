@@ -1,7 +1,8 @@
 # 2048Game
 Copyright (c) 2016 Simeng Hua    
 
-demo of the classic mode: http://web.cecs.pdx.edu/~shua/project/main_mode1.html
+Slides: https://github.com/simenghua/OpenSource/blob/master/presentation.pdf      
+Demo of the classic mode: http://web.cecs.pdx.edu/~shua/project/main_mode1.html
 
 What is 2048?  
 -   
